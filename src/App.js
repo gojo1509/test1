@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DisplayNumber from "./DisplayNumber";
 import Task from "./Task";
 import ColorBox from "./ColorBox";
+import StudentCard from "./StudentCard";
 
 function App() {
   // Bài 1
@@ -20,6 +21,13 @@ function App() {
 
   // Bài 3
   const [color, setColor] = useState("");
+
+  // Bài 4
+  const students = [
+    { name: "Nguyễn Văn A", age: 20, lop: "CNTT1" },
+    { name: "Trần Thị B", age: 21, lop: "CNTT2" },
+    { name: "Lê Văn C", age: 19, lop: "CNTT3" },
+  ];
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
@@ -57,6 +65,13 @@ function App() {
         <button onClick={() => setColor("yellow")}>yellow</button>
       </div>
       <ColorBox color={color} />
+
+      {/* Bài 4 */}
+      <h3>Bài 4: Quản lý sinh viên</h3>
+      {students.map((s, i) => (
+        <StudentCard key={i} name={s.name} age={s.age} lop={s.lop} />
+      ))}
+      <hr />
     </div>
   );
 }
